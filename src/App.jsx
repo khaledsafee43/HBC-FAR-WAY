@@ -35,10 +35,16 @@ function Logo() {
 function Form({ onAddItem }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!description.trim()) {
+      setError("Please enter an item.");
+      return;
+    }
 
+    setError("");
     const newItem = {
       id: Date.now(),
       description: description,
