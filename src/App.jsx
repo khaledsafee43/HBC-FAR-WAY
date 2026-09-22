@@ -81,6 +81,7 @@ function Form({ onAddItem }) {
       />
 
       <button type="submit">Add</button>
+      {error && <p>{error}</p>}
     </form>
   );
 }
