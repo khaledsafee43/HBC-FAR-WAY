@@ -85,15 +85,19 @@ function PackingList({ items, onDelete, onChecked }) {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <input
-              type="checkbox"
-              checked={item.packed}
-              onChange={() => onChecked(item.id)}
-            />
+            <div className="flex gap-2 items-center">
+              <input
+                type="checkbox"
+                checked={item.packed}
+                onChange={() => onChecked(item.id)}
+              />
 
-            <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-              {item.quantity} {item.description}
-            </span>
+              <span
+                style={item.packed ? { textDecoration: "line-through" } : {}}
+              >
+                {item.quantity} {item.description}
+              </span>
+            </div>
 
             <button onClick={() => onDelete(item.id)}>❌</button>
           </li>
